@@ -56,6 +56,7 @@ export const GameList = () => {
   const [activeFilter, setactiveFilter] = useState(FILTER_OPTIONS[0].label);
   const [games, setGames] = useState<Game[]>([]);
   const [favorites, setFavorites] = useState<string[]>([]);
+  const [query, setQuery] = useState("");
 
   const fetchGames = async () => {
     try {
@@ -98,23 +99,31 @@ export const GameList = () => {
         filters={FILTER_OPTIONS}
         activeFilter={activeFilter}
         setActiveFilter={(value) => setactiveFilter(value)}
+        query={query}
+        setQuery={(text) => setQuery(text)}
       />
-      <div className="flex flex-wrap gap-2 py-2 h-full mx-5 w-full overflow-y-scroll no-scrollbar">
-        {filteredGames.length > 0 ? (
-          filteredGames.map((game) => (
-            <GameItem
-              key={game.id}
-              game={game}
-              toggleFavorite={() => handleFavorite(game.id)}
-              isFavorite={favorites.includes(game.id)}
-            />
-          ))
-        ) : (
-          <div className="h-full w-full grid place-items-center text-grey">
-            No games found
-          </div>
-        )}
-      </div>
+      {loadingGames ? (
+        <div className="w-full h-full grid place-items-center text-grey">
+          Loading...
+        </div>
+      ) : (
+        <div className="flex flex-wrap gap-2 py-2 h-full mx-5 w-full overflow-y-scroll no-scrollbar">
+          {filteredGames.length > 0 ? (
+            filteredGames.map((game) => (
+              <GameItem
+                key={game.id}
+                game={game}
+                toggleFavorite={() => handleFavorite(game.id)}
+                isFavorite={favorites.includes(game.id)}
+              />
+            ))
+          ) : (
+            <div className="h-full w-full grid place-items-center text-grey">
+              No games found
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

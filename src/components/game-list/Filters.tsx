@@ -9,12 +9,16 @@ interface FiltersProps {
   filters: FilterOption[];
   activeFilter: string;
   setActiveFilter: (filter: string) => void;
+  query: string;
+  setQuery: (query: string) => void;
 }
 
 export const Filters = ({
   filters,
   activeFilter,
   setActiveFilter,
+  query,
+  setQuery,
 }: FiltersProps) => {
   const [openSearch, setOpenSearch] = useState(false);
 
