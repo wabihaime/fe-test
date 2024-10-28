@@ -416,9 +416,9 @@ export const Border = () => (
         y2="34.6211"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stopColor="#00A6FF" stop-opacity="0" />
+        <stop stopColor="#00A6FF" stopOpacity="0" />
         <stop offset="0.495" stopColor="#00A6FF" />
-        <stop offset="1" stopColor="#00A6FF" stop-opacity="0" />
+        <stop offset="1" stopColor="#00A6FF" stopOpacity="0" />
       </linearGradient>
     </defs>
   </svg>
