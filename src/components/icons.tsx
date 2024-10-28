@@ -384,9 +384,9 @@ export const SelectionCircle = () => (
         y2="35.9988"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#00A6FF" />
-        <stop offset="0.5" stop-color="#9FF9FF" />
-        <stop offset="1" stop-color="#00A6FF" />
+        <stop stopColor="#00A6FF" />
+        <stop offset="0.5" stopColor="#9FF9FF" />
+        <stop offset="1" stopColor="#00A6FF" />
       </linearGradient>
     </defs>
   </svg>
@@ -416,9 +416,9 @@ export const Border = () => (
         y2="34.6211"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#00A6FF" stop-opacity="0" />
-        <stop offset="0.495" stop-color="#00A6FF" />
-        <stop offset="1" stop-color="#00A6FF" stop-opacity="0" />
+        <stop stopColor="#00A6FF" stop-opacity="0" />
+        <stop offset="0.495" stopColor="#00A6FF" />
+        <stop offset="1" stopColor="#00A6FF" stop-opacity="0" />
       </linearGradient>
     </defs>
   </svg>
