@@ -58,9 +58,9 @@ export const Search = () => (
     <path
       d="M9.45833 4.37109C12.3348 4.37109 14.6667 6.70295 14.6667 9.57943M15.3529 15.4699L19.875 19.9961M17.7917 9.57943C17.7917 14.1818 14.0607 17.9128 9.45833 17.9128C4.85596 17.9128 1.125 14.1818 1.125 9.57943C1.125 4.97705 4.85596 1.24609 9.45833 1.24609C14.0607 1.24609 17.7917 4.97705 17.7917 9.57943Z"
       stroke="currentColor"
-      stroke-width="2.08333"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2.08333"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -373,7 +373,7 @@ export const SelectionCircle = () => (
       r="17"
       transform="rotate(45 18.4561 17.9988)"
       stroke="url(#paint0_linear_1_273)"
-      stroke-width="2"
+      strokeWidth="2"
     />
     <defs>
       <linearGradient

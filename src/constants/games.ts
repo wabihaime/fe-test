@@ -1,26 +1,33 @@
+export interface Game {
+  id: string;
+  name: string;
+  url: string;
+  category: string;
+}
+
 export const GAMES = [
   {
     id: "f472c490-17e4-4954-93c7-627451d991bd",
     name: "Flowdesk",
-    url: "http://dummyimage.com/148x114.png/dddddd/000000",
+    url: "https://picsum.photos/200",
     category: "slots",
   },
   {
     id: "81d62b80-47cb-48a4-9857-056f4681853b",
     name: "Transcof",
-    url: "http://dummyimage.com/188x141.png/cc0000/ffffff",
+    url: "https://picsum.photos/200",
     category: "mastercard",
   },
   {
     id: "901443a8-f768-48cb-8d8c-f78b51813900",
     name: "Bitchip",
-    url: "http://dummyimage.com/190x160.png/5fa2dd/ffffff",
+    url: "https://picsum.photos/200",
     category: "slots",
   },
   {
     id: "46800906-8d51-4ee4-95af-3103f0fa3e13",
     name: "Bitwolf",
-    url: "http://dummyimage.com/184x156.png/ff4444/ffffff",
+    url: "https://picsum.photos/200",
     category: "new",
   },
   {
