@@ -72,17 +72,20 @@ const NavButton = ({
     <Button
       onClick={onClick}
       className={classNames(
+        "px-0 py-2 h-[50px]",
         isActive ? "text-primary" : "text-grey",
-        "flex flex-col flex-grow uppercase relative gap-2"
+        "flex flex-col flex-1 uppercase items-center justify-end w-full"
       )}
     >
-      {isActive && (
-        <div className="absolute top-0">
-          <SelectionCircle />
-        </div>
-      )}
-      {option.icon}
-      <span>{option.label}</span>
+      <div className="relative flex items-center justify-center p-2">
+        {isActive && (
+          <div className="absolute top-0">
+            <SelectionCircle />
+          </div>
+        )}
+        {option.icon}
+      </div>
+      <span className="text-[12px] text-center">{option.label}</span>
     </Button>
   );
 };

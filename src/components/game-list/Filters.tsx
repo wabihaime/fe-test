@@ -1,62 +1,22 @@
 "use client";
 import React, { useState } from "react";
-import {
-  Bingo,
-  Jackpots,
-  Live,
-  New,
-  Others,
-  Search,
-  Slots,
-  Start,
-  TableGames,
-} from "../icons";
+import { Search } from "../icons";
 import { Button } from "../Button";
 import classNames from "@/helpers/classnames";
+import { FilterOption } from "./interface";
 
-interface FilterOption {
-  label: string;
-  icon: React.ReactNode;
+interface FiltersProps {
+  filters: FilterOption[];
+  activeFilter: string;
+  setActiveFilter: (filter: string) => void;
 }
 
-const FILTER_OPTIONS: FilterOption[] = [
-  {
-    label: "Start",
-    icon: <Start />,
-  },
-  {
-    label: "New",
-    icon: <New />,
-  },
-  {
-    label: "Slots",
-    icon: <Slots />,
-  },
-  {
-    label: "Live",
-    icon: <Live />,
-  },
-  {
-    label: "Jackpots",
-    icon: <Jackpots />,
-  },
-  {
-    label: "Table Games",
-    icon: <TableGames />,
-  },
-  {
-    label: "Bingo",
-    icon: <Bingo />,
-  },
-  {
-    label: "Others",
-    icon: <Others />,
-  },
-];
-
-export const Filters = () => {
+export const Filters = ({
+  filters,
+  activeFilter,
+  setActiveFilter,
+}: FiltersProps) => {
   const [openSearch, setOpenSearch] = useState(false);
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
   return (
     <div className="h-[50px] w-full items-center flex">
@@ -70,7 +30,7 @@ export const Filters = () => {
       />
       <div style={{ width: 1, height: 30, backgroundColor: "#888888" }} />
       <div className=" w-full items-center flex overflow-x-scroll">
-        {FILTER_OPTIONS.map((option) => (
+        {filters.map((option) => (
           <FilterButton
             key={option.label}
             option={option}
