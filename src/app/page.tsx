@@ -2,10 +2,12 @@ import { Banner, FooterNav, GameList, Header } from "@/components";
 
 export default function Home() {
   return (
-    <div className="h-full relative">
+    <div className="h-[100vh] overflow-y-hidden flex flex-col relative no-scrollbar">
       <Header />
-      <Banner />
-      <GameList />
+      <div className="flex-1 overflow-scroll no-scrollbar">
+        <Banner />
+        <GameList />
+      </div>
       <FooterNav />
     </div>
   );

@@ -21,16 +21,30 @@ export const GameItem = ({
       className="w-[30%] aspect-square bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center text-white text-2xl font-bold relative"
       style={{
         backgroundImage: `url(https://picsum.photos/200)`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
-      <div className="absolute right-0 top-0">
-        <Image src="/favoriteMask.png" height={40} width={40} alt="mask" />
-      </div>
-      <div className="absolute right-1 top-1 ">
+      <img
+        src="/favoriteMask.png"
+        style={{
+          width: "15%",
+          height: "15%",
+          minWidth: "50px",
+          minHeight: "50px",
+          position: "absolute",
+          top: 0,
+          right: 0,
+        }}
+        alt="mask"
+      />
+
+      <div className="absolute right-2 top-2 ">
         <Button
           className={classNames(
-            isFavorite ? "text-yellow" : "text-white",
-            "px-0 py-0"
+            "pl-0 pr-0 pt-0",
+            isFavorite ? "text-yellow" : "text-white"
           )}
           onClick={toggleFavorite}
         >

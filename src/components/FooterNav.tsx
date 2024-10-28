@@ -44,7 +44,7 @@ export const FooterNav = () => {
   const [activeRoute, setActiveRoute] = useState(NAV_OPTIONS[0].label);
 
   return (
-    <div className="fixed bottom-0  w-full h-[60px] py-2 bg-white flex items-stretch">
+    <div className=" w-full h-[60px] py-2 bg-white flex items-stretch">
       {NAV_OPTIONS.map((option, index) => (
         <NavButton
           key={index}

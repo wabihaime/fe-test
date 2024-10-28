@@ -3,7 +3,7 @@ import { Bell } from "./icons";
 
 export const Banner = () => {
   return (
-    <div className="px-4 py-3 text-[14px]">
+    <div className="px-4 py-3 text-[14px] w-full">
       <div
         style={{
           backgroundImage: "url('/Banner.png')",

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Filters } from "./Filters";
 import {
   Start,
@@ -83,22 +83,37 @@ export const GameList = () => {
     }
   };
 
+  const filteredGames = useMemo(() => {
+    if (activeFilter === "Start") {
+      return games;
+    }
+    return games.filter((game) => {
+      return game.category.toLowerCase() === activeFilter.toLowerCase();
+    });
+  }, [activeFilter, games]);
+
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <Filters
         filters={FILTER_OPTIONS}
         activeFilter={activeFilter}
         setActiveFilter={(value) => setactiveFilter(value)}
       />
-      <div className="flex flex-wrap gap-1 py-2 mx-auto w-full">
-        {games.map((game) => (
-          <GameItem
-            key={game.id}
-            game={game}
-            toggleFavorite={() => handleFavorite(game.id)}
-            isFavorite={favorites.includes(game.id)}
-          />
-        ))}
+      <div className="flex flex-wrap gap-2 py-2 h-full mx-5 w-full overflow-y-scroll no-scrollbar">
+        {filteredGames.length > 0 ? (
+          filteredGames.map((game) => (
+            <GameItem
+              key={game.id}
+              game={game}
+              toggleFavorite={() => handleFavorite(game.id)}
+              isFavorite={favorites.includes(game.id)}
+            />
+          ))
+        ) : (
+          <div className="h-full w-full grid place-items-center text-grey">
+            No games found
+          </div>
+        )}
       </div>
     </div>
   );

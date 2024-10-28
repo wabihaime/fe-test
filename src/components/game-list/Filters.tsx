@@ -19,7 +19,7 @@ export const Filters = ({
   const [openSearch, setOpenSearch] = useState(false);
 
   return (
-    <div className="h-[50px] w-full items-center flex">
+    <div className="w-full items-center flex overflow-hidden">
       <FilterButton
         option={{
           label: "Search",
@@ -29,7 +29,7 @@ export const Filters = ({
         isActive={openSearch}
       />
       <div style={{ width: 1, height: 30, backgroundColor: "#888888" }} />
-      <div className=" w-full items-center flex overflow-x-scroll">
+      <div className="w-full items-center flex overflow-x-scroll no-scrollbar">
         {filters.map((option) => (
           <FilterButton
             key={option.label}
