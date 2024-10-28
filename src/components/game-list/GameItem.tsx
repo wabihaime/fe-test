@@ -1,7 +1,7 @@
 import { Game } from "@/constants/games";
 import Image from "next/image";
 import React from "react";
-import { Star } from "../icons";
+import { FavoriteBtn, FavoriteBtnOutline, Star } from "../icons";
 import { Button } from "../Button";
 import classNames from "@/helpers/classnames";
 
@@ -26,7 +26,7 @@ export const GameItem = ({
       <div className="absolute right-0 top-0">
         <Image src="/favoriteMask.png" height={40} width={40} alt="mask" />
       </div>
-      <div className="absolute right-0 top-0 ">
+      <div className="absolute right-1 top-1 ">
         <Button
           className={classNames(
             isFavorite ? "text-yellow" : "text-white",
@@ -34,7 +34,7 @@ export const GameItem = ({
           )}
           onClick={toggleFavorite}
         >
-          <Star />
+          {isFavorite ? <FavoriteBtn /> : <FavoriteBtnOutline />}
         </Button>
       </div>
       {game.name}
