@@ -57,6 +57,7 @@ export const GameList = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [favorites, setFavorites] = useState<string[]>([]);
   const [query, setQuery] = useState("");
+  const [selectedProvider, setSelectedProvider] = useState("");
 
   const fetchGames = async () => {
     try {
@@ -102,6 +103,8 @@ export const GameList = () => {
         setActiveFilter={(value) => setactiveFilter(value)}
         query={query}
         setQuery={(text) => setQuery(text)}
+        selectedProvider={selectedProvider}
+        setSelectedProvider={(value) => setSelectedProvider(value)}
       />
       {loadingGames ? (
         <div className="w-full h-full grid place-items-center text-grey">

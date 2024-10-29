@@ -1,9 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Filter, Search } from "../icons";
+import { Close, Filter, Search } from "../icons";
 import { Button } from "../Button";
 import classNames from "@/helpers/classnames";
 import { FilterOption } from "./interface";
+import providers from "@/constants/providers";
+import Image from "next/image";
 
 interface FiltersProps {
   filters: FilterOption[];
@@ -11,6 +13,8 @@ interface FiltersProps {
   setActiveFilter: (filter: string) => void;
   query: string;
   setQuery: (query: string) => void;
+  selectedProvider: string;
+  setSelectedProvider: (provider: string) => void;
 }
 
 export const Filters = ({
@@ -19,8 +23,11 @@ export const Filters = ({
   setActiveFilter,
   query,
   setQuery,
+  selectedProvider,
+  setSelectedProvider,
 }: FiltersProps) => {
   const [openSearch, setOpenSearch] = useState(false);
+  const [openProviders, setOpenProviders] = useState(false);
 
   useEffect(() => {
     if (!openSearch) {
@@ -69,9 +76,64 @@ export const Filters = ({
             )}
           ></input>
         </div>
-        <Button className="ring-1 ring-primary rounded-md h-8 w-8 pl-0 pr-0 pt-0 pb-0">
+        <Button
+          onClick={() => setOpenProviders(true)}
+          className={classNames(
+            "ring-1 rounded-md h-8 w-8 pl-0 pr-0 pt-0 pb-0",
+            selectedProvider
+              ? "ring-primary text-pretty"
+              : "ring-grey text-grey"
+          )}
+        >
           <Filter />
         </Button>
+      </div>
+
+      <div
+        className={classNames(
+          "fixed z-50 inset-0 bg-black/40",
+          openProviders ? "block" : "hidden"
+        )}
+      >
+        <div className="bg-white h-[80%] fixed bottom-0 inset-x-0">
+          <div className="bg-primary flex text-white h-[40px] items-center px-3 py-2 gap-2">
+            <Filter />
+            <span>Game Provider </span>
+            <span className="px-3 py-1 border border-white rounded-full text-[12px]">
+              {providers.length}
+            </span>
+            <div className="flex-1" />
+            <Button onClick={() => setOpenProviders(false)}>
+              <Close />
+            </Button>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {providers.map((provider) => (
+              <div
+                key={provider.id}
+                className={classNames(
+                  "h-[35px] w-[45%] relative bg-[#F2F2FA] rounded-md cursor-pointer",
+                  selectedProvider === provider.name
+                    ? "border-2 border-primary"
+                    : ""
+                )}
+                onClick={() => {
+                  setSelectedProvider(
+                    selectedProvider === provider.name ? "" : provider.name
+                  );
+                  setOpenProviders(false);
+                }}
+              >
+                <Image
+                  src={provider.url}
+                  fill={true}
+                  alt={provider.name}
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );
