@@ -1,26 +1,34 @@
 import React from "react";
 import { Bell } from "./icons";
+import Image from "next/image";
 
 export const Banner = () => {
   return (
     <div className="px-4 text-[14px] w-full">
       <div
-        style={{
-          backgroundImage: "url('/images/banner.png')",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "180px",
-          width: "100%",
-          borderRadius: "10px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-evenly",
-          color: "white",
-          padding: "0 26px",
-          cursor: "pointer",
-        }}
+        className=" w-full h-[180px] rounded-[10px] px-[26px] flex flex-col justify-evenly text-white cursor-pointer relative overflow-hidden"
+        // style={{
+        //   backgroundImage: "url('/images/banner.png')",
+        //   backgroundRepeat: "no-repeat",
+        //   backgroundSize: "cover",
+        //   backgroundPosition: "center",
+        //   height: "180px",
+        //   width: "100%",
+        //   borderRadius: "10px",
+        //   display: "flex",
+        //   flexDirection: "column",
+        //   justifyContent: "space-evenly",
+        //   color: "white",
+        //   padding: "0 26px",
+        //   cursor: "pointer",
+        // }}
       >
+        <Image
+          src="/images/banner.png"
+          fill={true}
+          alt="banner"
+          className="absolute right-0 top-0 -z-10 object-cover"
+        />
         <h1 className="font-bold">RESCUE</h1>
         <h1 className="font-bold text-yellow">BONUS</h1>
         <h1 className="w-[100px]">WE ARE HERE FOR YOU</h1>
