@@ -108,7 +108,7 @@ export const GameList = () => {
           Loading...
         </div>
       ) : (
-        <div className="flex flex-wrap gap-2 py-2 h-full justify-evenly w-full overflow-y-scroll no-scrollbar">
+        <div className="flex flex-wrap gap-2 py-2 px-3 h-full w-full overflow-y-scroll no-scrollbar">
           {filteredGames.length > 0 ? (
             filteredGames.map((game) => (
               <GameItem
