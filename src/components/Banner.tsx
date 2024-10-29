@@ -5,24 +5,7 @@ import Image from "next/image";
 export const Banner = () => {
   return (
     <div className="px-4 text-[14px] w-full">
-      <div
-        className=" w-full h-[180px] rounded-[10px] px-[26px] flex flex-col justify-evenly text-white cursor-pointer relative overflow-hidden"
-        // style={{
-        //   backgroundImage: "url('/images/banner.png')",
-        //   backgroundRepeat: "no-repeat",
-        //   backgroundSize: "cover",
-        //   backgroundPosition: "center",
-        //   height: "180px",
-        //   width: "100%",
-        //   borderRadius: "10px",
-        //   display: "flex",
-        //   flexDirection: "column",
-        //   justifyContent: "space-evenly",
-        //   color: "white",
-        //   padding: "0 26px",
-        //   cursor: "pointer",
-        // }}
-      >
+      <div className=" w-full h-[180px] rounded-[10px] px-[26px] flex flex-col justify-evenly text-white cursor-pointer relative overflow-hidden">
         <Image
           src="/images/banner.png"
           fill={true}

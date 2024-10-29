@@ -107,7 +107,7 @@ export const Filters = ({
               <Close />
             </Button>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 px-3 py-2">
             {providers.map((provider) => (
               <div
                 key={provider.id}
