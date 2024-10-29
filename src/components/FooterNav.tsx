@@ -44,7 +44,7 @@ export const FooterNav = () => {
   const [activeRoute, setActiveRoute] = useState(NAV_OPTIONS[0].label);
 
   return (
-    <div className=" w-full h-[60px] py-2 bg-white flex items-stretch">
+    <div className="w-full h-[60px] py-2 bg-white flex items-stretch justify-center">
       {NAV_OPTIONS.map((option, index) => (
         <NavButton
           key={index}
@@ -72,9 +72,9 @@ const NavButton = ({
     <Button
       onClick={onClick}
       className={classNames(
-        "px-0 py-2 h-[50px]",
+        "pl-0 pr-0 py-2 h-[50px]",
         isActive ? "text-primary" : "text-grey",
-        "flex flex-col flex-1 uppercase items-center justify-end w-full"
+        "flex flex-col flex-1 uppercase items-center justify-end"
       )}
     >
       <div className="relative flex items-center justify-center p-2">

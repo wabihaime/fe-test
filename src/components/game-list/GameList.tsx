@@ -85,13 +85,14 @@ export const GameList = () => {
   };
 
   const filteredGames = useMemo(() => {
-    if (activeFilter === "Start") {
-      return games;
-    }
     return games.filter((game) => {
-      return game.category.toLowerCase() === activeFilter.toLowerCase();
+      return (
+        (game.category.toLowerCase() === activeFilter.toLowerCase() ||
+          activeFilter === "Start") &&
+        game.name.toLowerCase().includes(query.toLowerCase())
+      );
     });
-  }, [activeFilter, games]);
+  }, [activeFilter, games, query]);
 
   return (
     <div className="flex flex-col items-center">
@@ -107,7 +108,7 @@ export const GameList = () => {
           Loading...
         </div>
       ) : (
-        <div className="flex flex-wrap gap-2 py-2 h-full mx-5 w-full overflow-y-scroll no-scrollbar">
+        <div className="flex flex-wrap gap-2 py-2 h-full justify-evenly w-full overflow-y-scroll no-scrollbar">
           {filteredGames.length > 0 ? (
             filteredGames.map((game) => (
               <GameItem
