@@ -6,7 +6,7 @@ export const Banner = () => {
     <div className="px-4 text-[14px] w-full">
       <div
         style={{
-          backgroundImage: "url('/Banner.png')",
+          backgroundImage: "url('/banner.png')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
